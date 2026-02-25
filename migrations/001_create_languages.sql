@@ -1,0 +1,9 @@
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+CREATE TABLE IF NOT EXISTS languages (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  code VARCHAR(5) UNIQUE NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
